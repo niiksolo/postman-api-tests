@@ -1,13 +1,13 @@
 # Postman API Tests 🚀
 
-![CI](https://github.com/niiksolo/postman-api-tests/actions/workflows/tests.yml/badge.svg)
+![CI](https://github.com/niiksolo/postman-api-tests/actions/workflows/api-tests.yml/badge.svg)
 
-Учебный проект для демонстрации API тестов с использованием **Postman + Newman + GitHub Actions**.  
-Проект показывает умение:
-- Работать с коллекциями и окружениями Postman
-- Писать тесты на JS (статусы, schema, негативные кейсы, CRUD)
-- Интегрировать с CI/CD (GitHub Actions)
-- Публиковать отчёты через GitHub Pages
+🚀 API Tests (Postman + Newman + GitHub Actions)
+Учебный проект для портфолио.
+Работа с Postman (коллекции, окружения, переменные)
+Написание тестов на JS (статусы, ошибки, CRUD-операции)
+Запуск тестов в CI через GitHub Actions
+Генерация HTML-отчётов и публикация через GitHub Pages
 
 ## 🔗 Отчёты
 👉 [Смотреть последний HTML отчёт](https://niiksolo.github.io/postman-api-tests/report.html)
