@@ -1,0 +1,34 @@
+name: API Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Newman + reporter
+        run: |
+          npm install -g newman newman-reporter-htmlextra
+
+      - name: Run API tests
+        run: |
+          newman run "Api tests.postman_collection.json" \
+            -e "reqres.postman_environment.json" \
+            -r "cli,htmlextra" \
+            --reporter-htmlextra-export "report.html" \
+            --reporter-htmlextra-title "API Tests (Reqres)" \
+            --reporter-htmlextra-darkTheme
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: newman-report
+          path: report.html
