@@ -11,7 +11,7 @@
 - Генерация HTML-отчётов и публикация через GitHub Pages
 
 ### 🔗 Отчёты
-👉 [Смотреть последний HTML-отчёт](https://niiksolo.github.io/postman-api-tests/report/)
+👉 [Смотреть последний HTML-отчёт](https://niiksolo.github.io/postman-api-tests/report/report.html)
 
 ### 📂 Структура проекта
 - `Api tests.postman_collection.json` — коллекция запросов  
