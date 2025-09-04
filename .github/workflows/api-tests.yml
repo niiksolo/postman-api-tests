@@ -2,33 +2,46 @@ name: API Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Newman + reporter
-        run: |
-          npm install -g newman newman-reporter-htmlextra
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-html
 
-      - name: Run API tests
+      - name: Run Postman tests
         run: |
           newman run "Api tests.postman_collection.json" \
-            -e "reqres.postman_environment.json" \
-            -r "cli,htmlextra" \
-            --reporter-htmlextra-export "report.html" \
-            --reporter-htmlextra-title "API Tests (Reqres)" \
-            --reporter-htmlextra-darkTheme
+          -e "reqres.postman_environment.json" \
+          -r cli,html --reporter-html-export report.html
 
-      - name: Upload HTML report
+      - name: Upload report as artifact
         uses: actions/upload-artifact@v4
         with:
           name: newman-report
           path: report.html
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

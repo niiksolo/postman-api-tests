@@ -1,19 +1,18 @@
-# Postman API Tests (Reqres)
+# Postman API Tests 🚀
 
-Учебный проект с API-тестами на Postman + Newman.  
-Автоматизация запуска тестов через GitHub Actions.
+![CI](https://github.com/niiksolo/postman-api-tests/actions/workflows/tests.yml/badge.svg)
 
-## Содержание
-- Коллекция Postman: **Api tests.postman_collection.json**
-- Окружение: **reqres.postman_environment.json**
-- CI/CD: `.github/workflows/api-tests.yml`
+Учебный проект для демонстрации API тестов с использованием **Postman + Newman + GitHub Actions**.  
+Проект показывает умение:
+- Работать с коллекциями и окружениями Postman
+- Писать тесты на JS (статусы, schema, негативные кейсы, CRUD)
+- Интегрировать с CI/CD (GitHub Actions)
+- Публиковать отчёты через GitHub Pages
 
-## Тестируемые сценарии
-- 🔑 Auth (login: успешный и негативные кейсы)
-- 👤 Users CRUD (get, create, update, delete)
-- ❌ Negative (пустая страница, задержка ответа)
-- 📐 Validation (JSON Schema)
+## 🔗 Отчёты
+👉 [Смотреть последний HTML отчёт](https://niiksolo.github.io/postman-api-tests/report.html)
 
-## Автоотчёт
-- При каждом push запускается GitHub Actions.
-- Результат сохраняется в **Artifacts** в разделе Actions.
+## 📂 Структура
+- `Api tests.postman_collection.json` — коллекция запросов
+- `reqres.postman_environment.json` — окружение
+- `.github/workflows/tests.yml` — CI pipeline
