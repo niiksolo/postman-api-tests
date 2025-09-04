@@ -31,9 +31,9 @@ jobs:
             --reporter-htmlextra-export report/index.html
 
       - name: Upload test report
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: report
+          path: ./report
 
   deploy:
     needs: test
