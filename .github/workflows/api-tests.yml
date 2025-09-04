@@ -31,7 +31,8 @@ jobs:
             --reporter-htmlextra-export report/index.html
 
       - name: Upload test report
-        uses: actions/upload-pages-artifact@v4
+        if: always() # даже если тесты упали
+        uses: actions/upload-pages-artifact@v3
         with:
           path: report
 
@@ -44,4 +45,5 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
+        if: always()
         uses: actions/deploy-pages@v4
